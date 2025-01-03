@@ -9,6 +9,7 @@ import './App.css'
 import FormBuilder from './pages/FormBuilder';
 import ChatbotWrapper from './pages/ChatbotWrapper';
 import WorkspaceJoin from './pages/WorkspaceJoin'
+import Chatbot from './pages/Chatbot'
 
 function App() {
   return (
