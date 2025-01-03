@@ -139,8 +139,11 @@
   .responseTable {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--bg-primary);
+    background-color: var(--dark-bg-secondary);
     position: relative;
+  }
+  .responseTable [data-theme="light"]{
+     background-color: var(--light-bg-primary);
   }
   
   /* Sticky header */
