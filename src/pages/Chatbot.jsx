@@ -7,7 +7,7 @@ import styles from "./Chatbot.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Chatbot = ({ formId, shareToken }) => {
+const Chatbot = ({ formId }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [form, setForm] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -20,6 +20,7 @@ const Chatbot = ({ formId, shareToken }) => {
   const [inputVisible, setInputVisible] = useState(true);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isFormCompleted, setIsFormCompleted] = useState(false);
+  const { shareToken } = useParams();
   const messagesEndRef = useRef(null);
   const [sessionId] = useState(() => {
     // Try to get existing sessionId from localStorage
@@ -237,7 +238,7 @@ const Chatbot = ({ formId, shareToken }) => {
         } else {
             await api.post(`/forms/formsbot/${formId}/responses`, responseData);
         }
-        
+
       console.log(responseData);
       await api.post(`/forms/formsbot/${formId}/responses`, responseData);
 
@@ -347,7 +348,31 @@ const Chatbot = ({ formId, shareToken }) => {
       ))}
     </div>
   );
+    useEffect(() => {
+        const fetchPublicForm = async () => {
+            try {
+                setIsLoading(true);
+                // Use the public endpoint that doesn't require authentication
+                const response = await api.get(`/forms/public/${shareToken}`);
 
+                if (response.data.success) {
+                    setForm(response.data.form);
+                } else {
+                    setError('Form not found');
+                }
+            } catch (err) {
+                console.error('Error fetching form:', err);
+                setError('Failed to load form');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        if (shareToken) {
+            fetchPublicForm();
+        }
+    }, [shareToken]);
+    
   if (isLoading && !form) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!form) return <div>Form not found</div>;

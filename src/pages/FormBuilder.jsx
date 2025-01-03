@@ -442,7 +442,8 @@ const FormBuilder = () => {
       // Proceed to share the form
       const response = await api.post(`/forms/share/${currentFormId}`);
       if (response.data.success) {
-        alert(`Form shared! Shareable URL: ${response.data.shareableUrl}`);
+        const shareableUrl = `${window.location.origin}/form/${response.data.shareToken}`;
+        alert(`Form shared! Shareable URL: ${shareableUrl}`);
         navigate(`/chatbot/${currentFormId}`);
       } else {
         throw new Error("Failed to share the form.");

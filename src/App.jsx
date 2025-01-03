@@ -19,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path='/dashboard' element={<DashBoard />}/>
         <Route path='/setting' element={<Setting />}/>
+        <Route path="/form/:shareToken" element={<Chatbot />} />
         {/* <Route path='/formbuilding' element={<FormBuilder />}/> */}
         <Route 
           path="/formbuilding/:formId" 
