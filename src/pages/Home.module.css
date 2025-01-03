@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&display=swap');
+
+
+:root {
+  /* Light theme variables */
+  --light-bg-primary: #f5f5f5;
+  --light-bg-secondary: #e0e0e0;
+  --light-bg-dropdown: #ffffff;
+  --light-text-primary: #333333;
+  --light-text-secondary: #666666;
+  --light-border-color: #dddddd;
+  --light-modal-bg: #ffffff;
+  --light-input-bg: #f5f5f5;
+  --light-typebot-bg: #e0e0e0;
+  --light-typebot-card: #0056b3;
+
+  /* Dark theme variables */
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #292929;
+  --dark-bg-dropdown: #292929;
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: #cccccc;
+  --dark-border-color: #444444;
+  --dark-modal-bg: #292929;
+  --dark-input-bg: #1c1c1c;
+  --dark-typebot-bg: #444444;
+  --dark-typebot-card: #007bff;
+
+  /* Common variables */
+  --primary-blue: #2196f3;
+  --danger-red: #ff4c4c;
+  --success-green: #4caf50;
+}
+
+/* Apply theme variables based on data-theme attribute */
+[data-theme="light"] {
+  --bg-primary: var(--light-bg-primary);
+  --bg-secondary: var(--light-bg-secondary);
+  --bg-dropdown: var(--light-bg-dropdown);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --border-color: var(--light-border-color);
+  --modal-bg: var(--light-modal-bg);
+  --input-bg: var(--light-input-bg);
+  --typebot-bg: var(--light-typebot-bg);
+  --typebot-card: var(--light-typebot-card);
+}
+
+[data-theme="dark"] {
+  --bg-primary: var(--dark-bg-primary);
+  --bg-secondary: var(--dark-bg-secondary);
+  --bg-dropdown: var(--dark-bg-dropdown);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border-color);
+  --modal-bg: var(--dark-modal-bg);
+  --input-bg: var(--dark-input-bg);
+  --typebot-bg: var(--dark-typebot-bg);
+  --typebot-card: var(--dark-typebot-card);
+}
+
+
+.outfit-regular {
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.outfit-bold {
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.open-sans-regular {
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.logoname{
+    font-weight: 600;
+   margin: 10px 0px 0px 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-color: #3a86ff;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.signInBtn {
+  padding: 5px 15px;
+  background-color: transparent;
+  color: #3a86ff;
+  border: 2px solid #3a86ff;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signInBtn:hover {
+  background-color: #3a86ff;
+  color: #000;
+}
+
+.createBtn {
+  padding: 5px 15px;
+  background-color: #3a86ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.createBtn:hover {
+  background-color: #0056b3;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 50px 20px;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 800px;
+  z-index: 2;
+    font-family: "Open Sans", serif;
+    font-weight: 400;
+}
+
+.title {
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 3.8rem;
+  background: linear-gradient(90deg, #4B83FF 0%, #B794F4 100%);
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.ctaButton {
+  background-color: #1A5FFF;
+  color: #ffffff;
+  padding:16px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #3a86ff;
+}
+
+.leftShape {
+  position: absolute;
+  top: 17%;
+  left: -3%;
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+}
+
+.rightShape {
+  position: absolute;
+  top: 8%;
+  right: -2%;
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+}
+
+
+.middleimg{
+ align-items: center;
+ padding: 40px 40px 40px 20px;
+ width: 1281px;
+ height: 700px;
+ margin-bottom: 80px;
+}
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 80px 40px 150px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family:"Open Sans", serif ;
+}
+
+.section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footerlogo {
+  display: flex;
+  margin-top: 15px;
+}
+
+.footerlogoname{
+  font-weight: 600;
+  margin:10px 0px 0px 10px;
+}
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.link {
+  color: #3a86ff;
+}
+

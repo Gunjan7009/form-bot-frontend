@@ -1,0 +1,459 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+
+}
+
+.image-preview {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 0;
+}
+
+.preview-img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.avatar{
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.avatar img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.image-url {
+  display: block;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+  word-break: break-all;
+}
+
+
+.imageMessage {
+  max-width: 300px;
+  margin: 5px 0;
+}
+
+.chatImage {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.errorImage {
+  border: 1px solid #ff0000;
+  opacity: 0.5;
+}
+.header {
+  padding: 16px;
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.messagesContainer {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  /* background-color: #f9f9f9; */
+}
+
+.messageWrapper {
+  margin-bottom: 12px;
+  display: flex;
+}
+
+.botMessage {
+  justify-content: flex-start;
+}
+
+.userMessage {
+  justify-content: flex-end;
+}
+
+.message {
+  max-width: 80%;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.userMessage .message {
+  background-color: #FF8E21;
+  color: white;
+  /* width: 20px; */
+}
+
+.inputContainer {
+  padding: 16px;
+    width: 250px;
+    position: relative;
+    left: 535px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.sendButton {
+  margin-left: 8px;
+  background-color: #007bff;
+  height: 39px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sentbutton{
+  height:20px; 
+  rotate:45deg; 
+  margin-left:-5px;
+}
+.sendButton:hover {
+  background-color: #0056b3;
+}
+
+
+.ratingContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.ratingItem {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ratingItem:hover {
+    background-color: lightblue;
+}
+
+.selectedRating {
+    background-color: orange !important;
+}
+.dateInputContainer {
+    width: 100%;
+    position: relative;
+
+}
+
+.dateInputWrapper {
+    width: 100%;
+    cursor: pointer;
+}
+
+.dateInputField:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.datePopper {
+    position: absolute !important;
+    z-index: 1000;
+}
+
+.dateCalendar {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+}
+
+.datePickerWrapper {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+}
+
+/* .react-datepicker {
+    font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #aeaeae;
+    border-radius: 0.3rem;
+    display: inline-block;
+    position: relative;
+    line-height: initial;
+} */
+
+.react-datepicker-popper {
+    z-index: 1000 !important;
+}
+
+.react-datepicker__header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 8px;
+}
+
+
+.react-datepicker__day {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.react-datepicker__day:hover {
+    background-color: #e9ecef;
+}
+
+.react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.dateInputWithButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.dateFieldContainer {
+    flex: 1;
+    position: relative;
+}
+
+.dateInputField {
+   flex: 1;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.imageMessage {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.chatImage {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.sentbutton {
+    width: 24px;
+    height: 24px;
+}
+.datein{
+  display: flex;
+}
+
+.submitButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: relative;
+    right: 10px;
+}
+
+.finalSubmitButton {
+    padding: 12px 24px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.finalSubmitButton:hover {
+    background-color: #0052a3;
+}
+
+.finalSubmitButton:active {
+    background-color: #004080;
+}
+
+@media screen and (max-width: 431px) {
+  .container {
+    width: 96%;
+    padding: 10px;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .header {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .messagesContainer {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .messageWrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .message {
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    word-break: break-word;
+    margin-top: 4px;
+  }
+
+  .userMessage .message {
+    background-color: #ff8e21;
+    color: white;
+  }
+
+  .inputContainer {
+    padding: 10px;
+    position: relative;
+    width: 50%;
+    left: 46%;
+  }
+
+  .inputWrapper {
+    flex-direction: row;
+    align-items: stretch;
+
+  }
+
+  .input {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .sendButton {
+    width: 20%;
+    padding: 12px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  .ratingContainer {
+    gap: 6px;
+    position: relative;
+    right: 0%;
+  }
+
+  .ratingItem {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .dateInputContainer {
+    width: 100%;
+    padding: 0;
+    position: relative;
+    right: 20%;
+  }
+
+  .dateInputField {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .dateInputWithButton {
+    flex-direction: column;
+  }
+
+  .dateFieldContainer {
+    width: 100%;
+  }
+
+
+
+  .chatImage {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  .submitButtonContainer {
+    padding: 10px 0;
+    justify-content: center;
+  }
+
+  .finalSubmitButton {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .sentbutton {
+    width: 18px;
+    height: 18px;
+  }
+
+  .datein{
+  display: flex;
+  width: 116%;
+}
+}

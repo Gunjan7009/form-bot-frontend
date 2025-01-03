@@ -1,0 +1,585 @@
+/* FormBuilder.css */
+:root {
+  --dark-bg: #18181b;
+  --dark-tertiary: #1f1f23;
+  --dark-secondary: #2d2d2d;
+  --dark-border: #404040;
+  --light-bg: #ffffff;
+  --light-secondary: #f0f0f0;
+  --light-border: #444444;
+  --blue-btn: #3b82f6;
+  --green-btn: #22c55e;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+}
+
+.app-container {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+}
+
+.light-mode {
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+
+.header {
+  border-bottom: 1px solid var(--dark-border);
+  padding: 1rem;
+}
+
+.header-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  background-color: #18181b;
+}
+.dark-mode .header-content {
+  background-color: var(--dark-bg);
+}
+
+.light-mode .header-content {
+  background-color: var(--light-bg);
+}
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding: 2px;
+  border-radius: 6px;
+  background-color: transparent;
+}
+.toggle-container::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  /* background-color: #0084ff; */
+}
+.dark-mode .toggle-container {
+  background-color: transparent;
+}
+
+/* .light-mode .toggle-container {
+    background-color: var(--light-secondary);
+  } */
+
+.toggle-btn {
+  padding: 8px 20px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.toggle-btn.active {
+  border-color: #0084ff;
+  color: #0084ff;
+  background-color: transparent;
+}
+.dark-mode .toggle-btn {
+  color: #ffffff;
+}
+
+.dark-mode .toggle-btn.active {
+  color: #0084ff;
+}
+
+.light-mode .toggle-btn {
+  color: #000000;
+}
+
+.light-mode .toggle-btn.active {
+  color: #0084ff;
+}
+.dark-mode .toggle-btn:not(.active):hover,
+.light-mode .toggle-btn:not(.active):hover {
+  background-color: transparent;
+}
+.form-name-input {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: var(--dark-secondary);
+  color: var(--text-light);
+  justify-self: start;
+  max-width: 200px;
+}
+
+.dark-mode .form-name-input {
+  background-color: var(--dark-secondary);
+  color: var(--text-light);
+}
+
+.light-mode .form-name-input {
+  background-color: var(--light-secondary);
+  color: var(--text-dark);
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.change {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.change input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 6px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+.close-btn {
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: inherit;
+}
+.close-btn:hover {
+  background-color: var(--dark-secondary);
+}
+
+.share-btn,
+.save-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.share-btn {
+  background-color: var(--blue-btn);
+}
+.start-block {
+  background-color: #18181b;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  width: 380px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  margin-left: 300px;
+  border-radius: 15px;
+}
+.light-mode .start-block {
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-border);
+}
+.start-text {
+  display: flex;
+  margin-left: 20px;
+}
+.starttext {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #ffffff;
+  margin-left: 20px;
+}
+.light-mode .starttext {
+  color: #000000;
+}
+.start-icon {
+  color: #ffffff;
+  height: 21px;
+  margin-top: 12px;
+}
+/* .light-mode .start-icon{
+    background-color: blue;
+  } */
+.save-btn {
+  background-color: var(--green-btn);
+}
+
+.share-btn:hover,
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--dark-tertiary);
+}
+.light-mode .main-container {
+  background-color: var(--light-bg);
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 260px;
+  padding: 1rem;
+  border: 2px solid;
+  /* border-right: 1px solid var(--dark-border); */
+  overflow-y: auto;
+  border-radius: 6px;
+  margin-left: 20px;
+  border-color: rgb(53, 46, 46);
+  margin-top: 20px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom: #000000;
+  background-color: #18181b;
+}
+.light-mode .sidebar {
+  background-color: var(--light-bg);
+}
+
+.category-section {
+  margin-bottom: 1.5rem;
+}
+
+.category-title {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.light-mode .category-title {
+  color: #000000;
+}
+
+.elements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.element-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--dark-secondary);
+  color: inherit;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .element-button {
+  background-color: var(--dark-secondary);
+}
+
+.light-mode .element-button {
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-border);
+}
+
+.element-button:hover {
+  background-color: var(--dark-border);
+}
+
+.element-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-area {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.form-element {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: var(--dark-secondary);
+}
+
+.dark-mode .form-element {
+  background-color: var(--dark-secondary);
+}
+
+.light-mode .form-element {
+  background-color: var(--light-secondary);
+}
+
+.form-elements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 380px;
+  margin-left: 285px;
+}
+
+.element-container {
+  width: 375px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 98px;
+}
+
+.element-container:not(.selected) {
+  background-color: var(--light-bg);
+  border: 1px solid var(--light-border);
+}
+
+.dark-mode .element-container:not(.selected) {
+  background-color: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+}
+.dark-mode .element-container.selected {
+  background-color: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+}
+.editable-field {
+  display: inline-block;
+  position: relative;
+  left: 24px;
+  min-width: 200px;
+  width: 80%;
+  padding: 0;
+  white-space: nowrap;
+  margin: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: text;
+}
+.editable-field:focus {
+  outline: none;
+}
+.editable-field:empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  pointer-events: none;
+  /* display: block; */
+}
+.editable-input {
+  display: inline-block; /* Keep it inline for natural text flow */
+  width: 100%; /* Maintain consistent width */
+  min-width: 100%;
+  box-sizing: border-box; /* Prevent padding from increasing width */
+  border: 1px solid transparent; /* Prevent border shift during focus */
+  transition: border 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  outline: none;
+  background: transparent;
+  font-size: inherit;
+  color: inherit;
+  margin-left: 21px;
+  overflow-x: scroll;
+overflow-y: hidden;
+}
+.editable-input::placeholder {
+  color: #aaa;
+}
+
+.element-content {
+  display: flex;
+  align-items: center;
+  /* gap: 0.75rem; */
+}
+.element-hint {
+  position: relative;
+  left: 25px;
+  top: 20px;
+  color: #555555;
+}
+.element-icon-wrapper {
+  height: 15px;
+  /* height: 24px; */
+  width: 24px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  left: 25px;
+  top: 24px;
+  z-index: 10;
+}
+.element-label{
+  color: var(--text-dark);
+}
+.dark-mode .element-label{
+  color: var(--text-light);
+}
+.element-icon-wrapper.input {
+  background-color: #fff7ed;
+}
+
+.element-icon-wrapper.bubble {
+  background-color: transparent;
+}
+.element-icon-wrapper svg {
+  top: 1px;
+  /* left: 24px; */
+  position: relative;
+}
+
+.contenttext {
+  left: 23px;
+  margin-top: -5px;
+  position: relative;
+}
+.element-details {
+  flex: 1 1;
+  display: flex;
+  width: 100%;
+}
+
+.element-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.element-input textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--light-secondary);
+  border: none;
+  border-radius: 0.375rem;
+  resize: none;
+  font-size: 0.875rem;
+}
+
+.dark-mode .element-input {
+  background-color: var(--dark-secondary);
+  color: var(--text-light);
+}
+
+.element-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.element-input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+
+.element-input-placeholder {
+  height: 2.5rem;
+  background-color: var(--light-secondary);
+  border-radius: 0.375rem;
+}
+
+.dark-mode .element-input-placeholder {
+  background-color: var(--dark-secondary);
+}
+
+.element-message {
+  height: 21px;
+  padding: 0.75rem;
+  background-color: #dbeafe;
+  border-radius: 0.5rem;
+  width: 300px;
+  position: relative;
+  left: -8px;
+  top: 11px;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; 
+  /* white-space: nowrap; */
+}
+.element-message::-webkit-scrollbar {
+  display: none;
+}
+.dark-mode .element-message {
+  background-color: var(--dark-tertiary);
+}
+
+.delete-btn {
+   background-color: var(--light-border);
+     border-radius: 50%;
+    border: 1px solid  var(--light-border);
+    color: red;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    position: relative;
+    left: 70px;
+    bottom: 30px;
+    height: 40px;
+    width: 40px;
+}
+.light-mode .delete-btn{
+   background-color: var(--light-bg);
+   border: 1px solid  var(--light-secondary);
+}

@@ -1,0 +1,175 @@
+.open-sans-regular {
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family:  "Open Sans", serif;
+}
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #18181b;
+  color: #ffffff;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.backgroundShapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.triangle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 8%;
+  top: 28%;
+}
+
+.pinkCircle {
+  position: absolute;
+  width: 90px;
+  height: 180px;
+  right: 0%;
+  top: 20%;
+}
+
+.orangeCircle {
+  position: absolute;
+  width: 180px;
+  height: 90px;
+  bottom: 0%;
+  right: 20%;
+}
+
+
+.loginForm {
+  margin: 0px;
+  padding: 40px;
+}
+
+
+
+
+.loginForm label {
+  display: block;
+  text-align: left;
+  margin: 0px 0 10px;
+  font-family: "";
+}
+
+.loginForm input {
+  width: 100%;
+  padding: 8px;
+  /* margin-bottom: 10px; */
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+}
+
+.loginButton {
+  width: 109%;
+  padding: 8px;
+  background-color: #2979ff;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+  margin-top: 15px;
+  box-shadow:  0px 4px 4px 0px #E9444B40;
+}
+
+.separator {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  width: 109%;
+  padding: 8px;
+  background-color: #2979ff;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+  box-shadow:  0px 4px 4px 0px #E9444B40;
+}
+
+
+.googleIcon {
+  width: 16px;
+  height: 16px;
+  margin: 0px 50px 0px 0px;
+  background-color: #ffffff;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.loginForm p {
+  font-size: 12px;
+
+}
+
+.loginForm a {
+  color: #2979ff;
+  text-decoration: none;
+}
+
+.loginForm a:hover {
+  text-decoration: underline;
+}
+
+.errorText {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin: 0px;
+    text-align: left;
+}
+
+.errorInput {
+    border-color: #ff4d4f;
+}
+.input.errorInput {
+    border-color: #ff4d4f !important;
+}
+.cont{
+  height: 90px;
+}

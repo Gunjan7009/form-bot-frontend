@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 87vh;
+  background-color: #1F1F23;
+  color: #fff;
+  padding: 40px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.messageContainer {
+    min-height: 24px;
+    margin-bottom: 16px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.messageContainer p {
+    margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #D0D0D0;
+  background-color: #1F1F23;
+  color: #fff;
+  outline: none;
+  padding-right: 40px;
+}
+
+.eyeButton {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.updateButton {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  width: 117%;
+  margin-top: 20px;
+}
+.logoutContainer {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  margin: 40px;
+}
+.logoutButton {
+  font-size: 14px;
+  color: #ff4d4d;
+  background: none;
+  border: none;
+ 
+}

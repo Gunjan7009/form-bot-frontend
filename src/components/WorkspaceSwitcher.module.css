@@ -1,0 +1,72 @@
+:root {
+    --background-color: #ffffff;
+    --border-color: #e5e7eb;
+    --text-secondary: #6b7280;
+    --hover-background: #f3f4f6;
+    
+    /* Dark theme variables */
+    --dark-background: #1f2937;
+    --dark-border-color: #374151;
+    --dark-hover-background: #374151;
+  }
+.workspaceSwitcher {
+    position: relative;
+  }
+  
+  
+  .dropdownContainer {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    margin-top: 4px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .workspaceGroup {
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .workspaceGroup:last-child {
+    border-bottom: none;
+  }
+  
+  .groupLabel {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .workspaceItem {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .workspaceItem:hover {
+    background-color: var(--hover-background);
+  }
+  
+  .permissionLabel {
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  /* Dark mode styles - these will be applied when the parent has data-theme="dark" */
+
+  
+  :global([data-theme="dark"]) .dropdownContainer {
+    background-color: var(--dark-background);
+    border-color: var(--dark-border-color);
+  }
+  
+  :global([data-theme="dark"]) .workspaceItem:hover {
+    background-color: var(--dark-hover-background);
+  }
