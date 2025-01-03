@@ -9,6 +9,7 @@ import {
   selectCurrentWorkspace,
   setCurrentWorkspace,
 } from "../redux/workspaceSlice";
+import api from "../data/api";
 
 const Header = ({
   workspaceName,
@@ -28,56 +29,73 @@ const Header = ({
   const [shareLink, setShareLink] = useState("");
   const [isGeneratingLink, setIsGeneratingLink] = useState(false);
   const [error, setError] = useState(null);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   const handleGenerateLink = async () => {
     setIsGeneratingLink(true);
     setError(null);
-    
+
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (!token) {
-        throw new Error('Authentication token not found');
+        throw new Error("Authentication token not found");
       }
 
-      const response = await fetch('/api/workspaces/generate-share-link', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
+      const { data } = await api.post(
+        "/api/workspaces/generate-share-link",
+        {
           workspaceId: currentWorkspace._id,
-          permission: sharePermission
-        })
-      });
+          permission: sharePermission,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to generate share link');
-      }
-
-      const data = await response.json();
-      
-      if (data && data.shareLink) {
+      if (data?.shareLink) {
         setShareLink(data.shareLink);
       } else {
-        throw new Error('Invalid response format from server');
+        throw new Error("Invalid response format from server");
       }
     } catch (error) {
       console.error("Error generating share link:", error);
-      setError(error.message || 'Failed to generate share link');
-      setShareLink('');
+      setError(
+        error.response?.data?.message ||
+        error.message ||
+        "Failed to generate share link"
+      );
+      setShareLink("");
     } finally {
       setIsGeneratingLink(false);
     }
   };
 
+
   const handleCopyLink = async () => {
+    if (!shareLink) return;
+
     try {
-      await navigator.clipboard.writeText(shareLink);
-      // Optionally show a success message
+      await window.navigator.clipboard.writeText(shareLink);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
     } catch (err) {
       console.error('Failed to copy link:', err);
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = shareLink;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2000);
+      } catch (err) {
+        console.error('Fallback: Failed to copy link:', err);
+        setError('Failed to copy link to clipboard');
+      }
+      document.body.removeChild(textArea);
     }
   };
 
@@ -168,9 +186,7 @@ const Header = ({
                   Send Invite
                 </button>
                 <p className={styles.sharepopupText}>Invite by Link</p>
-                {error && (
-                  <p className={styles.errorMessage}>{error}</p>
-                )}
+                {error && <p className={styles.errorMessage}>{error}</p>}
                 <div className={styles.shareLinkContainer}>
                   {shareLink ? (
                     <>
@@ -184,7 +200,7 @@ const Header = ({
                         className={styles.sharecopyButton}
                         onClick={handleCopyLink}
                       >
-                        Copy Link
+                        {copySuccess ? "Copied!" : "Copy Link"}
                       </button>
                     </>
                   ) : (

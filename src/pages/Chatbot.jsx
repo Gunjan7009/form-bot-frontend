@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
-import BotImage from "../image/botimage.png";
+import BotImage from "../image/image_4_ezfuvk.png";
 import api from "../data/api";
 import sent from "../image/icons8-send-button-48.png";
 import styles from "./Chatbot.module.css";

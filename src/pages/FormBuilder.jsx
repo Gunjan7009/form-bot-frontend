@@ -148,8 +148,24 @@ const FormElement = ({
     "input-rating": "Hint: User will give a rating in this field.",
     "input-button": "Hint: This will be a button for user interaction.",
   };
+
+
+  const handleContentFocus = (e) => {
+    if (e.target.value === "Click to add link") {
+      onUpdate(element.id, { content: "" });
+    }
+  };
+
   const handleContentBlur = (e) => {
     const newContent = e.target.value.trim();
+    if (!newContent) {
+      onUpdate(element.id, {
+        content: "Click to add link",
+        isEditing: false
+      });
+      return;
+    }
+
     const isValid =
       (element.type === "input-email" &&
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newContent)) ||
@@ -157,14 +173,16 @@ const FormElement = ({
       (element.type !== "input-email" && element.type !== "input-number");
 
     onUpdate(element.id, {
-      content: isValid ? newContent : element.content, // Keep original content if invalid
+      content: isValid ? newContent : element.content,
       isEditing: false,
     });
 
     if (!isValid) {
-      alert("Invalid input value!"); // Replace with a better UI for errors.
+      alert("Invalid input value!");
     }
   };
+
+
   const elementData = bubbleElements.find((el) => el.id === element.type);
   // const containerClass = isInput ? 'input' : 'bubble';
   const isImage = element.type === "image";
@@ -220,36 +238,25 @@ const FormElement = ({
                 ref={editableRef}
                 className={styles["editable-input"]}
                 type="text"
-                value={element.content || ""}
+                  value={element.content}
                 onChange={(e) =>
                   onUpdate(element.id, { content: e.target.value })
                 }
-                onBlur={(e) => {
-                  onUpdate(element.id, {
-                    content: e.target.value.trim(),
-                    isEditing: false,
-                  });
-                }}
-                placeholder={isImage ? "Enter image URL" : "Enter content"}
-                autoFocus
+                  onFocus={handleContentFocus}
+                  onBlur={handleContentBlur}
+                  placeholder={isImage ? "Enter image URL" : "Enter content"}
+                  autoFocus
               />
             ) : (
-              <p
+               <p
                 ref={editableRef}
-                className={styles["editable-field"]}
-                contentEditable
-                suppressContentEditableWarning
+                className={`${styles["editable-field"]} ${
+                  element.content === "Click to add link" ? styles.placeholder : ""
+                }`}
                 onClick={(e) => {
                   e.stopPropagation();
                   onUpdate(element.id, { isEditing: true });
                   setTimeout(() => editableRef.current?.focus(), 0);
-                }}
-                onBlur={(e) => {
-                  const newContent = e.target.textContent.trim();
-                  onUpdate(element.id, {
-                    content: newContent,
-                    isEditing: false,
-                  });
                 }}
               >
                 {element.content}
@@ -425,6 +432,10 @@ const FormBuilder = () => {
     alert("Form saved successfully!");
   };
 
+const handleNavigate = () => {
+  navigate("/dashboard");
+};
+
   const handleShare = async () => {
     try {
       let currentFormId = formId;
@@ -443,8 +454,13 @@ const FormBuilder = () => {
       const response = await api.post(`/forms/share/${currentFormId}`);
       if (response.data.success) {
         const shareableUrl = `${window.location.origin}/form/${response.data.shareToken}`;
-        alert(`Form shared! Shareable URL: ${shareableUrl}`);
-        navigate(`/chatbot/${currentFormId}`);
+         try {
+        await navigator.clipboard.writeText(shareableUrl);
+        alert('Shareable link copied to clipboard!');
+      } catch (clipboardError) {
+        console.error('Failed to copy to clipboard:', clipboardError);
+        alert(`Form shared! Shareable URL: ${shareableUrl}\n\nPlease copy the URL manually.`);
+      }
       } else {
         throw new Error("Failed to share the form.");
       }
@@ -521,7 +537,7 @@ const FormBuilder = () => {
                 >
                   Save
                 </button>
-                <button className={styles["close-btn"]}>
+                <button className={styles["close-btn"]} onClick={handleNavigate}>
                   <X size={20} />
                 </button>
               </div>
