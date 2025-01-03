@@ -249,38 +249,6 @@ const DashBoard = () => {
   if (!currentWorkspace) {
     return <div className={styles.error}>No workspace found. Please refresh the page.</div>;
   }
-
-  // const handleCreateIndependentTypebot = async () => {
-  //   if (!inputValue.trim()) {
-  //     setWorkspaceError("Please enter a name");
-  //     return;
-  //   }
-  
-  //   if (!currentWorkspace?._id) {
-  //     setWorkspaceError("No workspace selected. Please refresh the page.");
-  //     return;
-  //   }
-  
-  //   setLoadingWorkspace(true);
-  //   try {
-  //     await dispatch(
-  //       createTypebot({
-  //         workspaceId: currentWorkspace._id,
-  //         title: inputValue,
-  //       })
-  //     ).unwrap();
-      
-  //     setIsModalOpen(false);
-  //     setInputValue("");
-  //     setWorkspaceError(null);
-  //   } catch (error) {
-  //     setWorkspaceError(error.message || "Failed to create typebot");
-  //     console.error("Error creating typebot:", error);
-  //   } finally {
-  //     setLoadingWorkspace(false);
-  //   }
-  // };
-
   return (
     <div className={styles.dashboardContainer}>
       {isProcessing && <LoadingOverlay />}
