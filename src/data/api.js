@@ -3,11 +3,11 @@ import axios from "axios";
 
 
 const api = axios.create({
-    // baseURL: "http://localhost:3000",
-    baseURL: "https://form-bot-backend-tau.vercel.app",
-    headers: {
-        "Content-Type": "application/json",
-    },
+  // baseURL: "http://localhost:3000",
+  baseURL: "https://form-bot-backend-nu.vercel.app",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 api.interceptors.request.use((config) => {
