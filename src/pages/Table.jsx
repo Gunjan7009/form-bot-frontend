@@ -47,7 +47,7 @@ const Table = ({ data }) => {
                         {columns.map((column, index) => (
                             <th key={index}>{column.header}</th>
                         ))}
-                        <th>Logs</th>
+                        {/* <th>Logs</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -61,9 +61,9 @@ const Table = ({ data }) => {
                                     {formatCellValue(column.accessor(row))}
                                 </td>
                             ))}
-                            <td>
+                            {/* <td>
                                 <button className={styles.logsButton}>See logs</button>
-                            </td>
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>
