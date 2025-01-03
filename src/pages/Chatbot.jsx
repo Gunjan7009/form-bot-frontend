@@ -6,6 +6,7 @@ import sent from "../image/icons8-send-button-48.png";
 import styles from "./Chatbot.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useParams } from "react-router-dom";
 
 const Chatbot = ({ formId }) => {
   const [darkMode, setDarkMode] = useState(true);
@@ -20,7 +21,7 @@ const Chatbot = ({ formId }) => {
   const [inputVisible, setInputVisible] = useState(true);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isFormCompleted, setIsFormCompleted] = useState(false);
-  const { shareToken } = useParams();
+  const { shareToken } = useParamsparams();
   const messagesEndRef = useRef(null);
   const [sessionId] = useState(() => {
     // Try to get existing sessionId from localStorage
@@ -372,7 +373,7 @@ const Chatbot = ({ formId }) => {
             fetchPublicForm();
         }
     }, [shareToken]);
-    
+
   if (isLoading && !form) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!form) return <div>Form not found</div>;
