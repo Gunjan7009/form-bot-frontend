@@ -21,7 +21,7 @@ const Chatbot = ({ formId }) => {
   const [inputVisible, setInputVisible] = useState(true);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isFormCompleted, setIsFormCompleted] = useState(false);
-  const { shareToken } = useParamsparams();
+  const { shareToken } = useParams();
   const messagesEndRef = useRef(null);
   const [sessionId] = useState(() => {
     // Try to get existing sessionId from localStorage
