@@ -241,7 +241,7 @@ const Chatbot = ({ formId }) => {
         }
 
       console.log(responseData);
-      await api.post(`/forms/formsbot/${formId}/responses`, responseData);
+    //   await api.post(`/forms/formsbot/${formId}/responses`, responseData);
 
       const nextElement = currentElement + 1;
 
