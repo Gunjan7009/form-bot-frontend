@@ -56,28 +56,6 @@ const FormResponses = ({ formId }) => {
     { name: 'Incomplete', value: stats.starts - stats.completed }
   ];
 
-  // const getColumnHeaders = () => {
-  //   const headers = new Set();
-  //   responses.forEach(response => {
-  //     response.responses.forEach(r => {
-  //       headers.add(r.elementLabel);
-  //     });
-  //   });
-  //   return ['Submitted at', ...Array.from(headers)];
-  // };
-
-  // const formatResponseData = (response) => {
-  //   const baseData = {
-  //     'Submitted at': new Date(response.startedAt).toLocaleString()
-  //   };
-    
-  //   response.responses.forEach(r => {
-  //     baseData[r.elementLabel] = r.response;
-  //   });
-    
-  //   return baseData;
-  // };
-
   return (
     <div className={styles.container}>
       <div className={styles.statsGrid}>
@@ -116,7 +94,9 @@ const FormResponses = ({ formId }) => {
             </ResponsiveContainer>
           </div>
           <div className={styles.completionRate}>
+           
             <div className={styles.rateNumber}>
+              <p className={styles.completion}>Completion rate</p>
               {stats.starts ? Math.round((stats.completed / stats.starts) * 100) : 0}%
             </div>
           </div>

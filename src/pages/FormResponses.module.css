@@ -1,9 +1,9 @@
-:root {
+  :root {
   /* Light theme variables */
   --light-bg-primary: #f5f5f5;
   --light-bg-secondary: #e0e0e0;
   --light-bg-dropdown: #ffffff;
-  --light-text-primary: #333333;
+  --light-text-primary: #ffff;
   --light-text-secondary: #666666;
   --light-border-color: #dddddd;
   --light-modal-bg: #ffffff;
@@ -57,12 +57,6 @@
 }
 
 .container {
-    /* 
-    margin: 0 auto;
-    padding: 1.5rem;
-    align-items: center; */
-    /* display: flex;
-    flex-direction: column; */
     margin: 20px auto;
     width: 80%;
     height: 100%;
@@ -77,10 +71,11 @@
   
   .cardHeader {
     padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--dark-border-color);
+    border-bottom: 1px solid var(--dark-border-color);
     font-weight: 600;
     font-size: 1.125rem;
      color: var(--dark-text-primary);
+     background-color: var(--dark-bg-primary);
   }
   
   .cardContent {
@@ -104,7 +99,7 @@
   .statCard {
     text-align: center;
     padding: 1.5rem;
-    background-color: #323232;
+   background-color: var(--dark-bg-secondary);
     height: 40%;
 
   }
@@ -129,47 +124,84 @@
    background-color: var(--dark-bg-primary);
   }
   
+  
   .tableWrapper {
-    overflow-x: auto;
-    margin: 0 -1rem;
-    padding: 0 1rem;
+    max-height: 240px; /* Height for 3 rows + header */
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin: 0;
+    position: relative;
+    background-color: var(--bg-primary);
   }
+
   
   .responseTable {
     width: 100%;
-   border-collapse: separate;
-  border-spacing: 0;
+    border-collapse: collapse;
+    background-color: var(--bg-primary);
+    position: relative;
+  }
+  
+  /* Sticky header */
+  .responseTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .responseTable th {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
     white-space: nowrap;
   }
   
   .responseTable td {
-   padding: 0.75rem 1rem;
-  color: var(--dark-text-secondary);
-  border-bottom: 1px solid var(--dark-border-color);
-  font-size: 0.875rem;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
   }
   
-  .responseTable th {
-    background-color: var(--dark-bg-table-header);
-  color: var(--dark-text-secondary);
-  font-weight: 500;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--dark-border-color);
-  font-size: 0.875rem;
+  .responseTable tr:nth-child(even) td {
+    background-color: var(--bg-primary);
   }
-/*   
-  .responseTable tr:hover {
-    background-color: #f8fafc;
-  } */
   
-  .responseTable tr:nth-child(even) {
-  background-color: var(--dark-bg-table-row-even);
-}
+  /* Row hover effect */
+  .responseTable tbody tr:hover td {
+    background-color: var(--bg-dropdown);
+  }
+  
+  /* Checkbox cell styling */
+  .checkboxCell {
+    width: 48px;
+    text-align: center;
+  }
+  
+  /* Custom scrollbar styling */
+  .tableWrapper::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .tableWrapper::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+  
+  .tableWrapper::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+  
+  .tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+  
 
-.responseTable tr:nth-child(odd) {
-  background-color: var(--dark-bg-table-row-odd);
-}
 
 
 .logsButton {
@@ -204,11 +236,15 @@
   }
   
   .completionRate {
+   border-radius: 8%;
     text-align: center;
+    padding: 1.5rem;
+    background-color: #323232;
+    height: 40%;
   }
   
   .rateNumber {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1a5fff;
     line-height: 1;
@@ -217,6 +253,12 @@
   .rateLabel {
     color: #64748b;
     margin-top: 0.5rem;
+  }
+  .completion{
+    color: #ffffff;
+  }
+  .completion .lightMode{
+    color: #000000;
   }
   
   /* Dark mode styles */

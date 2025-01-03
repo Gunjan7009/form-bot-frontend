@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div>
+        <div className={styles.homebody}>
             <div className={styles.navbar}>
                 <div className={styles.logo}>
                     <div className={styles.icon}>

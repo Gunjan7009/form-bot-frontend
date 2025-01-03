@@ -14,7 +14,7 @@
 }
 
 .app-container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -263,7 +263,7 @@ input:checked + .slider:before {
 
 .main-container {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: var(--dark-tertiary);
 }
 .light-mode .main-container {

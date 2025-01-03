@@ -31,7 +31,7 @@
 
 /* Apply theme variables based on data-theme attribute */
 [data-theme="light"] {
-  --bg-primary: var(--light-bg-primary);
+  --bg-primary: var(--light-bg-dropdown);
   --bg-secondary: var(--light-bg-secondary);
   --bg-dropdown: var(--light-bg-dropdown);
   --text-primary: var(--light-text-primary);
@@ -56,9 +56,14 @@
   --typebot-card: var(--dark-typebot-card);
 }
 
-body{
+/* body{
+    background-color: #18181b;
+} */
+
+.maincontainer{
    background-color: var(--bg-primary);
   color: var(--text-primary);
+min-height: 100vh;
 }
 
 .container {
@@ -68,6 +73,7 @@ body{
   max-width: 800px;
   margin: 0 auto;
   border-radius: 8px;
+
  
 
 }
