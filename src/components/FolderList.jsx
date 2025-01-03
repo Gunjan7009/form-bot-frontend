@@ -49,12 +49,11 @@ const FolderList = ({ folders, openModal, selectedFolderId, setSelectedFolderId 
   
   const handleFolderClick = (folderId) => {
     if (operationInProgress) return;
-    // If clicking the same folder, deselect it
     if (selectedFolderId === folderId) {
       setSelectedFolderId(null);
       localStorage.removeItem('currentFolderId');
     } else {
-      // Otherwise, select the clicked folder
+
       setSelectedFolderId(folderId);
       localStorage.setItem('currentFolderId', folderId);
     }
@@ -68,16 +67,6 @@ const FolderList = ({ folders, openModal, selectedFolderId, setSelectedFolderId 
       type: "folder"
     });
   };
-
-  // if (loading) {
-  //   return (
-  //     <div className={styles.skeleton}>
-  //       {Array.from({ length: 5 }).map((_, idx) => (
-  //         <div key={idx} className={styles.skeletonFolder}></div>
-  //       ))}
-  //     </div>
-  //   );
-  // }
 
   
   return (

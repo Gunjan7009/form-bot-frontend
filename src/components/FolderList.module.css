@@ -161,3 +161,7 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+.noFolders {
+  font-size: 16px;
+  margin-top: 20px;
+}

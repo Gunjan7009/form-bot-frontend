@@ -7,7 +7,7 @@ import styles from "./Chatbot.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Chatbot = ({ formId }) => {
+const Chatbot = ({ formId, shareToken }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [form, setForm] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -48,7 +48,7 @@ const Chatbot = ({ formId }) => {
     }, [darkMode]);
 
   useEffect(() => {
-    if (!formId) {
+      if (!formId && !shareToken) {
       setError("No form ID provided");
       setIsLoading(false);
       return;
@@ -56,7 +56,14 @@ const Chatbot = ({ formId }) => {
 
     const fetchForm = async () => {
       try {
-        const response = await api.get(`/forms/getFormById/${formId}`);
+          let response;
+          if (shareToken) {
+              // Use public route if accessing via share token
+              response = await api.get(`/forms/public/${shareToken}`);
+          } else {
+              // Use authenticated route if accessing directly
+              response = await api.get(`/forms/getFormById/${formId}`);
+          }
         if (response.data.success) {
           setForm(response.data.form);
           if (response.data.form.elements.length > 0) {
@@ -86,7 +93,7 @@ const Chatbot = ({ formId }) => {
       }
     };
     fetchForm();
-  }, [formId]);
+  }, [formId, shareToken]);
 
   const DateInput = () => (
     <div className={styles.dateInputContainer}>
@@ -224,6 +231,13 @@ const Chatbot = ({ formId }) => {
         response: inputValue.toString(),
         sessionId: sessionId,
       };
+
+        if (shareToken) {
+            await api.post(`/forms/public/${shareToken}/responses`, responseData);
+        } else {
+            await api.post(`/forms/formsbot/${formId}/responses`, responseData);
+        }
+        
       console.log(responseData);
       await api.post(`/forms/formsbot/${formId}/responses`, responseData);
 
